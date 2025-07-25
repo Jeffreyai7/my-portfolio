@@ -39,10 +39,12 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body className="font-sans bg-background text-foreground">
+      <body className="bg-background text-foreground">
         <ThemeProvider defaultTheme="system" enableSystem attribute="class">
-          <Header />
-          {children}
+          <div className="container">
+            <Header />
+            {children}
+          </div>
         </ThemeProvider>
       </body>
     </html>

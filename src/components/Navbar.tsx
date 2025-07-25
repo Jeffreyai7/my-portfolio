@@ -1,18 +1,18 @@
 "use client";
 import React from "react";
-import { Menu, ShoppingCartIcon, X } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { useNavbarStore } from "@/store";
 import { navLinks } from "@/lib/constant";
 import ThemeToggleButton from "./ThemeToggle";
-import NavigationMenuMobile from "./navigation-menu-08";
+import MenuToggle from "./MenuToggle";
+import MobileNavbar from "./MobileNav";
 
 const Header: React.FC = () => {
   const { isMenuOpen, toggleMenu } = useNavbarStore();
 
   return (
-    <header className="sticky left-0 right-0 top-0 z-50 bg-background text-foreground shadow-md transition-all duration-300">
+    <header className="sticky left-0 right-0 top-0 z-50 bg-background text-foreground transition-all duration-300">
       <div className="container mx-auto flex items-center justify-between px-2 py-3 md:px-6">
         {/* Logo */}
         <Link href="/" className="w-[50px]">
@@ -36,14 +36,18 @@ const Header: React.FC = () => {
               {link.name}
             </Link>
           ))}
+          <ThemeToggleButton />
         </nav>
 
-        {/* Mobile Menu Button */}
-        <div className="flex items-center space-x-4">
-          <ThemeToggleButton />
+        {/* Mobile Menu ` */}
+        <div className=" md:hidden">
+          <div className="flex items-center space-x-4">
+            <ThemeToggleButton />
+            <MenuToggle showNav={isMenuOpen} setShowNav={toggleMenu} />
+          </div>
+          <MobileNavbar showNav={isMenuOpen} setShowNav={toggleMenu} />
         </div>
       </div>
-      {<NavigationMenuMobile />}
     </header>
   );
 };
