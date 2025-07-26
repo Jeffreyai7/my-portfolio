@@ -6,7 +6,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
-import { BookOpen, Home, Rss, Settings, User } from "lucide-react";
+import { Home } from "lucide-react";
 import { LuFolderOpen, LuUser, LuMail } from "react-icons/lu";
 
 import Link from "next/link";
