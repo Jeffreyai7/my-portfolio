@@ -47,7 +47,7 @@ const Counter = ({ from = 0, to, duration = 2, suffix = "" }: CounterProps) => {
   }, [inView, from, to, duration]);
 
   return (
-    <motion.span ref={ref} className="text-3xl font-bold text-accent">
+    <motion.span ref={ref} className="text-3xl font-bold text-secondary">
       {count}
       {suffix}
     </motion.span>

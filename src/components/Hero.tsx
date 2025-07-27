@@ -16,22 +16,24 @@ const Hero = () => {
         <p>I excel at building responsive and accessible web applications.</p>
         <p>Let's work together to create something amazing!</p>
         <div className="flex flex-col md:flex-row items-center  gap-4 mt-4">
-          <Button>
+          <Button
+            variant={"outline"}
+            className="
+          rounded-[3rem]"
+          >
             Download CV
             <Download className="ml-2" />
           </Button>
           <div className="flex items-center gap-4">
-            <FaGithub size={24} cursor="pointer" className="hover:scale-110" />
-            <FaLinkedin
-              size={24}
-              cursor="pointer"
-              className="hover:scale-110"
-            />
-            <FaXTwitter
-              size={24}
-              cursor="pointer"
-              className="hover:scale-110"
-            />
+            <div className="flex items-center justify-center w-10 h-10 rounded-full border border-primary text-primary hover:border-secondary hover:text-secondary transition-colors duration-200 cursor-pointer">
+              <FaGithub size={20} />
+            </div>
+            <div className="flex items-center justify-center w-10 h-10 rounded-full border border-primary text-primary hover:border-secondary hover:text-secondary transition-colors duration-200 cursor-pointer">
+              <FaLinkedin size={20} />
+            </div>
+            <div className="flex items-center justify-center w-10 h-10 rounded-full border border-primary text-primary hover:border-secondary hover:text-secondary transition-colors duration-200 cursor-pointer">
+              <FaXTwitter size={20} />
+            </div>
           </div>
         </div>
       </div>
