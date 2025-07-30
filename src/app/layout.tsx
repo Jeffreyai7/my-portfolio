@@ -39,7 +39,7 @@ export default function RootLayout({
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body className="bg-background text-foreground">
         <ThemeProvider defaultTheme="system" enableSystem attribute="class">
-          <div className="container">{children}</div>
+          <div>{children}</div>
         </ThemeProvider>
       </body>
     </html>
