@@ -5,13 +5,11 @@ import Header from "@/components/Navbar";
 import StatsSection from "@/components/StatsSection";
 import { FadeSection } from "@/components/FadeInprovider";
 import Projects from "@/components/Projects";
+import Footer from "@/components/Footer";
 
 export default function App() {
   return (
-    <main className="w-full md:w-[80%] mx-auto">
-      <FadeSection>
-        <Header />
-      </FadeSection>
+    <main>
       <FadeSection delay={0.2}>
         <Hero />
       </FadeSection>
@@ -24,7 +22,7 @@ export default function App() {
       <FadeSection delay={0.8}>
         <MySkills />
       </FadeSection>
-      <FadeSection delay={1.0}>
+      <FadeSection delay={0.9}>
         <Projects />
       </FadeSection>
     </main>
