@@ -4,7 +4,7 @@ import SoftSkillsGrid from "./SoftSkillsGrid";
 
 const MySkills = () => {
   return (
-    <div className="flex flex-col items-center justify-center md:flex-row md:justify-between w-full h-full ">
+    <div className="grid grid-cols-1 md:grid-cols-2 w-full h-full ">
       <TechStackProgress />
       <SoftSkillsGrid />
     </div>

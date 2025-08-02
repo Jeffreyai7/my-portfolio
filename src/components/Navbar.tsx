@@ -15,7 +15,7 @@ const Header: React.FC = () => {
   const isActive = (path: string): boolean => pathname.includes(path);
 
   return (
-    <header className="sticky left-0 right-0 top-0 z-50 bg-background text-foreground transition-all duration-300">
+    <header className="sticky left-0 right-0 top-0 z-50 bg-background text-foreground transition-all duration-300 ">
       <div className="container mx-auto flex items-center justify-between px-2 py-3 md:px-6">
         {/* Logo */}
         <Link href="/" className="w-[50px]">

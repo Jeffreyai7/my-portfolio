@@ -6,6 +6,7 @@ import StatsSection from "@/components/StatsSection";
 import { FadeSection } from "@/components/FadeInprovider";
 import Projects from "@/components/Projects";
 import Footer from "@/components/Footer";
+import ContactSection from "@/components/Contact";
 
 export default function App() {
   return (
@@ -22,8 +23,11 @@ export default function App() {
       <FadeSection delay={0.8}>
         <MySkills />
       </FadeSection>
-      <FadeSection delay={0.9}>
+      <FadeSection delay={0.8}>
         <Projects />
+      </FadeSection>
+      <FadeSection delay={0.8}>
+        <ContactSection />
       </FadeSection>
     </main>
   );

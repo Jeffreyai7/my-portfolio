@@ -4,6 +4,7 @@ import Profilepic from "@/assets/profile.png";
 import { Button } from "./ui/button";
 import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import { Download } from "lucide-react";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -16,23 +17,45 @@ const Hero = () => {
         <p>I excel at building responsive and accessible web applications.</p>
         <p>Let's work together to create something amazing!</p>
         <div className="flex flex-col md:flex-row items-center  gap-4 mt-4">
-          <Button
-            variant={"outline"}
-            className="
-          rounded-[3rem]"
-          >
-            Download CV
-            <Download className="ml-2" />
-          </Button>
+          <div>
+            <a href="/mycv.pdf" download>
+              <Button
+                variant={"outline"}
+                className="
+            rounded-[3rem]"
+              >
+                Download CV
+                <Download className="ml-2" />
+              </Button>
+            </a>
+          </div>
           <div className="flex items-center gap-4">
             <div className="flex items-center justify-center w-10 h-10 rounded-full border border-primary text-primary hover:border-secondary hover:text-secondary transition-colors duration-200 cursor-pointer">
-              <FaGithub size={20} />
+              <Link
+                href="https://github.com/jirukeh"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaGithub size={20} />
+              </Link>
             </div>
             <div className="flex items-center justify-center w-10 h-10 rounded-full border border-primary text-primary hover:border-secondary hover:text-secondary transition-colors duration-200 cursor-pointer">
-              <FaLinkedin size={20} />
+              <Link
+                href="https://linkedin.com/in/jirukeh"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaLinkedin size={20} />
+              </Link>
             </div>
             <div className="flex items-center justify-center w-10 h-10 rounded-full border border-primary text-primary hover:border-secondary hover:text-secondary transition-colors duration-200 cursor-pointer">
-              <FaXTwitter size={20} />
+              <Link
+                href="https://x.com/jirukeh"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaXTwitter size={20} />
+              </Link>
             </div>
           </div>
         </div>

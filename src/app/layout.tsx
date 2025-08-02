@@ -39,7 +39,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body className="bg-background text-foreground">
+      <body className="bg-background text-foreground scroll-smooth antialiased">
         <ThemeProvider defaultTheme="system" enableSystem attribute="class">
           <div className="w-full md:w-[80%] mx-auto">
             <Header />

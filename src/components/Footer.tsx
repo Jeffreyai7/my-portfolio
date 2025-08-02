@@ -4,14 +4,13 @@ import { FaXTwitter } from "react-icons/fa6";
 export const Footer = () => {
   return (
     <footer className="bg-muted text-muted-foreground py-8">
-      <div className="max-w-4xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+      <div className="max-w-4xl mx-auto px-6 flex flex-col-reverse  md:flex-row justify-between items-center gap-6">
         <p className="text-sm text-center md:text-left">
-          &copy; {new Date().getFullYear()} Jeffrey — Built with Next.js,
-          Tailwind CSS and Framer Motion.
+          &copy; {new Date().getFullYear()} Jeffrey Irukeh. All rights reserved.
         </p>
         <div className="flex gap-6 text-xl">
           <a
-            href="mailto:your.email@example.com"
+            href="mailto:jirukeh@gmail.com"
             aria-label="Email"
             className="hover:text-foreground transition-colors"
           >
@@ -27,7 +26,7 @@ export const Footer = () => {
             <FaGithub />
           </a>
           <a
-            href="https://linkedin.com/in/yourusername"
+            href="https://linkedin.com/in/jirukeh"
             target="_blank"
             rel="noopener"
             aria-label="LinkedIn"
@@ -36,10 +35,10 @@ export const Footer = () => {
             <FaLinkedin />
           </a>
           <a
-            href="https://linkedin.com/in/yourusername"
+            href="https://x.com/jirukeh"
             target="_blank"
             rel="noopener"
-            aria-label="LinkedIn"
+            aria-label="Twitter"
             className="hover:text-foreground transition-colors"
           >
             <FaXTwitter />

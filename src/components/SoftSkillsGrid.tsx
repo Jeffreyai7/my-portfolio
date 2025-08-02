@@ -11,8 +11,9 @@ const skills = [
 
 export default function SoftSkillsGrid() {
   return (
-    <div className="w-[75%] mx-auto">
-      <div className="grid grid-cols-2 mx-auto gap-10">
+    <div className="md:w-full w-[75%] p-6 mx-auto">
+      <h2 className="text-2xl font-bold mb-6 text-center">Soft Skills</h2>
+      <div className="grid grid-cols-2 mx-auto md:gap-10 gap-20">
         {skills.map((s) => (
           <SkillProgress
             key={s.name}

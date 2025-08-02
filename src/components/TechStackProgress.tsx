@@ -24,6 +24,12 @@ const techStacks: Stack[] = [
     color: "bg-neutral-800",
   },
   {
+    name: "Saas",
+    icon: "simple-icons:sass",
+    percent: 65,
+    color: "bg-blue-500",
+  },
+  {
     name: "Tailwind CSS",
     icon: "simple-icons:tailwindcss",
     percent: 95,
@@ -36,20 +42,14 @@ const techStacks: Stack[] = [
     color: "bg-blue-700",
   },
   {
-    name: "MongoDB",
-    icon: "simple-icons:mongodb",
-    percent: 70,
+    name: "Git",
+    icon: "simple-icons:git",
+    percent: 75,
     color: "bg-green-600",
   },
   {
-    name: "MySQL",
-    icon: "simple-icons:mysql",
-    percent: 65,
-    color: "bg-blue-500",
-  },
-  {
-    name: "Postman",
-    icon: "simple-icons:postman",
+    name: "Nestjs",
+    icon: "simple-icons:nestjs",
     percent: 75,
     color: "bg-orange-500",
   },
@@ -57,7 +57,8 @@ const techStacks: Stack[] = [
 
 export default function TechStackProgress() {
   return (
-    <div className="w-full max-w-4xl p-6">
+    <div className="w-full p-6">
+      <h2 className="text-2xl font-bold mb-6 text-center">Tech Stack</h2>
       <div className="space-y-5">
         {techStacks.map((stack) => (
           <div key={stack.name}>
