@@ -5,6 +5,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import Header from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { ParticlesBackground } from "@/providers/Particles";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -41,11 +42,13 @@ export default function RootLayout({
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body className="bg-background text-foreground scroll-smooth antialiased">
         <ThemeProvider defaultTheme="system" enableSystem attribute="class">
-          <div className="w-full md:w-[80%] mx-auto">
-            <Header />
-            {children}
-            <Footer />
-          </div>
+          <ParticlesBackground>
+            <div className="w-full md:w-[80%] mx-auto">
+              <Header />
+              {children}
+              <Footer />
+            </div>
+          </ParticlesBackground>
         </ThemeProvider>
       </body>
     </html>

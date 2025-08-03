@@ -1,11 +1,9 @@
 import About from "@/components/About";
 import Hero from "@/components/Hero";
 import MySkills from "@/components/MySkills";
-import Header from "@/components/Navbar";
 import StatsSection from "@/components/StatsSection";
 import { FadeSection } from "@/components/FadeInprovider";
 import Projects from "@/components/Projects";
-import Footer from "@/components/Footer";
 import ContactSection from "@/components/Contact";
 
 export default function App() {
