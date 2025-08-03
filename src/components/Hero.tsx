@@ -3,7 +3,7 @@ import Image from "next/image";
 import Profilepic from "@/assets/profile.png";
 import { Button } from "./ui/button";
 import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
-import { Download } from "lucide-react";
+import { Download, ExternalLink } from "lucide-react";
 import Link from "next/link";
 
 const Hero = () => {
@@ -18,16 +18,20 @@ const Hero = () => {
         <p>Let's work together to create something amazing!</p>
         <div className="flex flex-col md:flex-row items-center  gap-4 mt-4">
           <div>
-            <a href="/mycv.pdf" download>
+            <Link
+              href="https://bit.ly/3HqtXYk"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Button
                 variant={"outline"}
                 className="
             rounded-[3rem]"
               >
-                Download CV
-                <Download className="ml-2" />
+                View CV
+                <ExternalLink className="ml-2 h-4 w-4" />
               </Button>
-            </a>
+            </Link>
           </div>
           <div className="flex items-center gap-4">
             <div className="flex items-center justify-center w-10 h-10 rounded-full border border-primary text-primary hover:border-secondary hover:text-secondary transition-colors duration-200 cursor-pointer">
