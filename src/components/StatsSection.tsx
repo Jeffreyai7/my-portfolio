@@ -10,8 +10,8 @@ const StatsSection = () => {
         <p className="text-sm">Projects Completed</p>
       </div>
       <div>
-        <Counter to={10} suffix="+" />
-        <p className=" text-sm">Happy Clients</p>
+        <Counter to={8} suffix="+" />
+        <p className=" text-sm">Technologies Used</p>
       </div>
       <div>
         <Counter to={3} suffix=" yrs" />

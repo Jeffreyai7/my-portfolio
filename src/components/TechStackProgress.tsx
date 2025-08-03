@@ -26,7 +26,7 @@ const techStacks: Stack[] = [
   {
     name: "Saas",
     icon: "simple-icons:sass",
-    percent: 65,
+    percent: 90,
     color: "bg-blue-500",
   },
   {
@@ -38,19 +38,19 @@ const techStacks: Stack[] = [
   {
     name: "TypeScript",
     icon: "simple-icons:typescript",
-    percent: 80,
+    percent: 85,
     color: "bg-blue-700",
   },
   {
     name: "Git",
     icon: "simple-icons:git",
-    percent: 75,
+    percent: 80,
     color: "bg-green-600",
   },
   {
     name: "Nestjs",
     icon: "simple-icons:nestjs",
-    percent: 75,
+    percent: 70,
     color: "bg-orange-500",
   },
 ];
