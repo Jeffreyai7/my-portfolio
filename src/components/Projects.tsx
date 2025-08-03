@@ -1,6 +1,7 @@
 "use client";
 import { projects } from "@/lib/constant";
 import { motion, Variants } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 
 const cardVariants: Variants = {
@@ -44,10 +45,12 @@ export default function Projects() {
               whileTap={{ scale: 0.98 }}
               viewport={{ once: true, amount: 0.4 }}
             >
-              <img
+              <Image
                 src={project.image}
                 alt={project.title}
                 className="rounded-xl mb-4 w-full h-48 object-cover border border-border"
+                width={500}
+                height={300}
               />
 
               <h3 className="text-xl font-semibold">{project.title}</h3>

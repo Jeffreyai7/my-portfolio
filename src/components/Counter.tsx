@@ -2,7 +2,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 type CounterProps = {
@@ -22,7 +22,7 @@ const Counter = ({ from = 0, to, duration = 2, suffix = "" }: CounterProps) => {
   useEffect(() => {
     if (!inView) return;
 
-    let start = from;
+    const start = from;
     let startTime: number | null = null;
     const end = to;
     const totalDuration = duration * 1000;

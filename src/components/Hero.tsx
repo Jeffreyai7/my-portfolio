@@ -3,7 +3,7 @@ import Image from "next/image";
 import Profilepic from "@/assets/profile.png";
 import { Button } from "./ui/button";
 import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
-import { Download, ExternalLink } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import Link from "next/link";
 
 const Hero = () => {
@@ -12,10 +12,10 @@ const Hero = () => {
       <div>
         <span>Frontend Developer</span>
         <h1 className="text-[2rem] sm:text-[3rem] md:text-[4rem] font-bold">
-          Hi, I'm <br /> Jeffrey Irukeh{" "}
+          Hi, I&apos;m <br /> Jeffrey Irukeh{" "}
         </h1>
         <p>I excel at building responsive and accessible web applications.</p>
-        <p>Let's work together to create something amazing!</p>
+        <p>Let&apos;s work together to create something amazing!</p>
         <div className="flex flex-col md:flex-row items-center  gap-4 mt-4">
           <div>
             <Link
