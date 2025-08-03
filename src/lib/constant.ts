@@ -36,7 +36,7 @@ export const projects: Project[] = [
   {
     title: "Dyen",
     description:
-      "A platform for managing and selling tickets for events, featuring real-time updates and a user-friendly interface.",
+      "A web Application for registering new users for a training programs, with a user-friendly interface and real-time updates.",
     techStack: ["React.js", "Tailwind CSS", "TypeScript", "Framer Motion"],
     image: "/images/dyenproject.png",
     location: "private",
