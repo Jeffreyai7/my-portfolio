@@ -49,7 +49,7 @@ export const projects: Project[] = [
     techStack: ["Next.js", "Tailwind CSS", "TypeScript"],
     image: "/images/jacinthforge.png",
     location: "private",
-    demo: "https://jacinthforge.com",
+    demo: "https://jacinthforge.com.ng",
   },
   {
     title: "Mini-Commerce",

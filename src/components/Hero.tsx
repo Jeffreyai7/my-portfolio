@@ -19,7 +19,7 @@ const Hero = () => {
         <div className="flex flex-col md:flex-row items-center  gap-4 mt-4">
           <div>
             <Link
-              href="https://bit.ly/3HqtXYk"
+              href="https://tinyurl.com/jeffreycv"
               target="_blank"
               rel="noopener noreferrer"
             >
