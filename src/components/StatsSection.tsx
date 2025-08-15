@@ -14,7 +14,7 @@ const StatsSection = () => {
         <p className=" text-sm">Technologies Used</p>
       </div>
       <div>
-        <Counter to={3} suffix=" yrs" />
+        <Counter to={3} suffix="+ yrs" />
         <p className=" text-sm">Experience</p>
       </div>
       <div>
