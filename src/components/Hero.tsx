@@ -10,7 +10,7 @@ const Hero = () => {
   return (
     <section className="flex flex-col-reverse text-center justify-center items-center md:text-left md:flex-row md:items-center md:justify-between gap-4 p-6">
       <div>
-        <span>Frontend Developer</span>
+        <span className="font-bold">Frontend Developer</span>
         <h1 className="text-[2rem] sm:text-[3rem] md:text-[4rem] font-bold">
           Hi, I&apos;m <br /> Jeffrey Irukeh{" "}
         </h1>
@@ -19,7 +19,7 @@ const Hero = () => {
         <div className="flex flex-col md:flex-row items-center  gap-4 mt-4">
           <div>
             <Link
-              href="https://tinyurl.com/jeffreycv"
+              href="https://tinyurl.com/jeffrreyirukeh"
               target="_blank"
               rel="noopener noreferrer"
             >
