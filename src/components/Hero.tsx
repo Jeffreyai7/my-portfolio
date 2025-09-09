@@ -36,7 +36,7 @@ const Hero = () => {
           <div className="flex items-center gap-4">
             <div className="flex items-center justify-center w-10 h-10 rounded-full border border-primary text-primary hover:border-secondary hover:text-secondary transition-colors duration-200 cursor-pointer">
               <Link
-                href="https://github.com/jirukeh"
+                href="https://github.com/Jeffreyai7"
                 target="_blank"
                 rel="noopener noreferrer"
               >
