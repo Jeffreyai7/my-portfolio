@@ -31,7 +31,7 @@ export const projects: Project[] = [
     techStack: ["React.js", "Zustand", "Tailwind CSS", "TypeScript", "Node.js"],
     image: "/images/menuswift.png",
     location: "private",
-    demo: "https://visit.menu",
+    demo: "https://usemenucard.com",
   },
   {
     title: "Dyen",
