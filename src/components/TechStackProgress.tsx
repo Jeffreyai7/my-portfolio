@@ -57,7 +57,7 @@ const techStacks: Stack[] = [
 
 export default function TechStackProgress() {
   return (
-    <div className="w-full p-6">
+    <div className="w-full md:w-[70%] mx-auto p-6">
       <h2 className="text-2xl font-bold mb-6 text-center">Tech Stack</h2>
       <div className="space-y-5">
         {techStacks.map((stack) => (
