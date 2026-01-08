@@ -18,13 +18,13 @@ export default function App() {
       <FadeSection delay={0.6}>
         <About />
       </FadeSection>
-      <FadeSection delay={0.8}>
+      <FadeSection delay={0.6}>
         <MySkills />
       </FadeSection>
-      <FadeSection delay={0.8}>
+      <FadeSection delay={0.6}>
         <Projects />
       </FadeSection>
-      <FadeSection delay={0.8}>
+      <FadeSection delay={0.6}>
         <ContactSection />
       </FadeSection>
     </main>
