@@ -17,7 +17,7 @@ const MobileNav = ({
   return (
     <div
       className={cn(
-        "absolute top-20 left-0 z-50 flex w-screen flex-col items-center justify-between gap-14 bg-primary-foreground/95 backdrop-blur-md py-10 shadow-2xl transition duration-500 lg:relative lg:top-0 lg:w-full lg:flex-row lg:gap-0 lg:py-0 lg:shadow-none",
+        "absolute top-16 left-0 z-50 flex w-screen flex-col items-center justify-between gap-14 bg-primary-foreground/95 backdrop-blur-md py-10 shadow-2xl transition duration-500 lg:relative lg:top-0 lg:w-full lg:flex-row lg:gap-0 lg:py-0 lg:shadow-none",
         showNav ? "translate-y-0" : "-translate-y-[200%] lg:translate-y-0"
       )}
     >
