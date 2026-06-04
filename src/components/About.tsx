@@ -1,17 +1,27 @@
-import React from "react";
-
-const About = () => {
-  return (
-    <div className="flex flex-col items-center justify-center w-full h-full p-4">
-      <h1 className="text-3xl font-bold mb-4">About Me</h1>
-      <p className="text-lg text-center max-w-2xl">
-        I am a passionate developer with a love for creating dynamic and
-        responsive web applications. My journey in tech has been driven by a
-        desire to learn and innovate, and I enjoy collaborating with others to
-        build impactful solutions.
+const About = () => (
+  <section className="grid grid-cols-[180px_1fr] gap-16 py-16 border-b border-border">
+    <span className="text-[11px] text-muted-foreground tracking-[0.12em] uppercase font-mono pt-1">
+      About
+    </span>
+    <div>
+      <h2
+        className="text-3xl font-light text-foreground leading-[1.15] mb-5"
+        style={{ fontFamily: "var(--ff-display)" }}
+      >
+        Precision-driven
+        <br />
+        <em className="italic text-[var(--accent)]">frontend craft</em>
+      </h2>
+      <p className="text-sm text-muted-foreground leading-[1.9] max-w-[580px] font-mono">
+        I'm a frontend developer with a passion for building fast, accessible,
+        and meticulously crafted web applications. My stack centers on React and
+        Next.js, with a strong grip on TypeScript and modern CSS.
+      </p>
+      <p className="text-sm text-muted-foreground leading-[1.9] max-w-[580px] font-mono mt-3">
+        I care deeply about the details — the kind that users feel without
+        noticing. If it ships, it should be right.
       </p>
     </div>
-  );
-};
-
+  </section>
+);
 export default About;

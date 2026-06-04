@@ -1,91 +1,58 @@
 "use client";
-
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 
-type Stack = {
-  name: string;
-  icon: string;
-  percent: number;
-  color: string; // Tailwind class
-};
-
-const techStacks: Stack[] = [
-  {
-    name: "React",
-    icon: "simple-icons:react",
-    percent: 90,
-    color: "bg-sky-500",
-  },
-  {
-    name: "Next.js",
-    icon: "simple-icons:nextdotjs",
-    percent: 85,
-    color: "bg-neutral-800",
-  },
-  {
-    name: "Saas",
-    icon: "simple-icons:sass",
-    percent: 90,
-    color: "bg-blue-500",
-  },
-  {
-    name: "Tailwind CSS",
-    icon: "simple-icons:tailwindcss",
-    percent: 95,
-    color: "bg-cyan-500",
-  },
-  {
-    name: "TypeScript",
-    icon: "simple-icons:typescript",
-    percent: 85,
-    color: "bg-blue-700",
-  },
-  {
-    name: "Git",
-    icon: "simple-icons:git",
-    percent: 80,
-    color: "bg-green-600",
-  },
-  {
-    name: "Nestjs",
-    icon: "simple-icons:nestjs",
-    percent: 70,
-    color: "bg-orange-500",
-  },
+const techStacks = [
+  { name: "React", icon: "simple-icons:react", percent: 90 },
+  { name: "Next.js", icon: "simple-icons:nextdotjs", percent: 85 },
+  { name: "TypeScript", icon: "simple-icons:typescript", percent: 85 },
+  { name: "Tailwind CSS", icon: "simple-icons:tailwindcss", percent: 95 },
+  { name: "Sass", icon: "simple-icons:sass", percent: 90 },
+  { name: "NestJS", icon: "simple-icons:nestjs", percent: 70 },
+  { name: "Git", icon: "simple-icons:git", percent: 80 },
 ];
 
 export default function TechStackProgress() {
   return (
-    <div className="w-full md:w-[70%] mx-auto p-6">
-      <h2 className="text-2xl font-bold mb-6 text-center">Tech Stack</h2>
-      <div className="space-y-5">
+    <section className="grid grid-cols-[180px_1fr] gap-16 py-16 border-b border-border">
+      <span className="text-[11px] text-muted-foreground tracking-[0.12em] uppercase font-mono pt-1">
+        Skills
+      </span>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-px bg-border">
         {techStacks.map((stack) => (
-          <div key={stack.name}>
-            <div className="flex items-center justify-between text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-              <div className="flex items-center gap-2">
-                <Icon
-                  icon={stack.icon}
-                  width="20"
-                  height="20"
-                  className="text-gray-800 dark:text-gray-100"
-                />
-                <span>{stack.name}</span>
-              </div>
-              <span>{stack.percent}%</span>
+          <motion.div
+            key={stack.name}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="bg-background hover:bg-card p-5 flex flex-col gap-3 group transition-colors"
+          >
+            <div className="flex items-center justify-between">
+              <Icon
+                icon={stack.icon}
+                width={18}
+                height={18}
+                className="text-muted-foreground group-hover:text-foreground transition-colors"
+              />
+              <span className="text-[10px] text-muted-foreground font-mono">
+                {stack.percent}%
+              </span>
             </div>
-
-            <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-4">
+            <span className="text-xs text-foreground font-mono font-medium">
+              {stack.name}
+            </span>
+            <div className="h-px bg-border w-full">
               <motion.div
                 initial={{ width: 0 }}
-                animate={{ width: `${stack.percent}%` }}
-                transition={{ duration: 1 }}
-                className={`h-4 rounded-full ${stack.color}`}
+                whileInView={{ width: `${stack.percent}%` }}
+                transition={{ duration: 0.9, ease: "easeOut" }}
+                viewport={{ once: true }}
+                className="h-px bg-[var(--accent)]"
               />
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
