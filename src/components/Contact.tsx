@@ -1,78 +1,66 @@
 "use client";
-
 import { motion } from "framer-motion";
 
-const ContactSection = () => {
-  return (
-    <motion.section
-      id="contact"
-      className="max-w-4xl mx-auto px-6 py-16 bg-background text-foreground"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
-    >
-      <h2 className="text-4xl font-bold mb-4">Let&rsquo;s Work Together</h2>
-      <p className="text-muted-foreground mb-10">
-        Got a project or an idea? I&rsquo;d love to hear about it. Reach out
-        below.
+const ContactSection = () => (
+  <motion.section
+    id="contact"
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+    transition={{ duration: 0.6 }}
+    viewport={{ once: true }}
+    className="grid grid-cols-[180px_1fr] gap-16 py-16"
+  >
+    <span className="text-[11px] text-muted-foreground tracking-[0.12em] uppercase font-mono pt-1">
+      Contact
+    </span>
+    <div>
+      <h2
+        className="text-4xl font-light text-foreground leading-[1.1] mb-4"
+        style={{ fontFamily: "var(--ff-display)" }}
+      >
+        Let&rsquo;s build
+        <br />
+        <em className="italic text-[var(--accent)]">something</em>
+      </h2>
+      <p className="text-sm text-muted-foreground font-mono leading-[1.8] mb-8">
+        Open to freelance projects, full-time roles, and interesting problems.
       </p>
 
-      <form
-        action="https://formspree.io/f/mdkdlaqk"
-        method="POST"
-        className="grid gap-6"
-      >
-        <div className="grid sm:grid-cols-2 gap-6">
-          <div className="flex flex-col">
-            <label htmlFor="name" className="mb-1 font-medium">
-              Name
-            </label>
-            <input
-              required
-              id="name"
-              name="name"
-              type="text"
-              placeholder="Your name"
-              className="p-3 bg-card text-card-foreground border border-border rounded-md"
-            />
-          </div>
-          <div className="flex flex-col">
-            <label htmlFor="email" className="mb-1 font-medium">
-              Email
-            </label>
-            <input
-              required
-              id="email"
-              name="email"
-              type="email"
-              placeholder="mail@example.com"
-              className="p-3 bg-card text-card-foreground border border-border rounded-md"
-            />
-          </div>
+      <form action="https://formspree.io/f/mdkdlaqk" method="POST" className="space-y-3">
+        <div className="grid grid-cols-2 gap-3">
+          {[
+            { id: "name", label: "Name", type: "text", placeholder: "Your name" },
+            { id: "email", label: "Email", type: "email", placeholder: "mail@example.com" },
+          ].map(({ id, label, type, placeholder }) => (
+            <div key={id} className="flex flex-col gap-1.5">
+              <label htmlFor={id} className="text-[11px] text-muted-foreground font-mono uppercase tracking-[0.06em]">
+                {label}
+              </label>
+              <input
+                required id={id} name={id} type={type} placeholder={placeholder}
+                className="bg-card border border-border text-foreground font-mono text-sm px-3 py-2.5 placeholder:text-muted-foreground/40 focus:outline-none focus:border-foreground/40 transition-colors"
+              />
+            </div>
+          ))}
         </div>
-        <div className="flex flex-col">
-          <label htmlFor="message" className="mb-1 font-medium">
+        <div className="flex flex-col gap-1.5">
+          <label htmlFor="message" className="text-[11px] text-muted-foreground font-mono uppercase tracking-[0.06em]">
             Message
           </label>
           <textarea
-            required
-            id="message"
-            name="message"
-            rows={5}
-            placeholder="Let&rsquo;s talk..."
-            className="p-3 bg-card text-card-foreground border border-border rounded-md"
+            required id="message" name="message" rows={5}
+            placeholder="What are you working on?"
+            className="bg-card border border-border text-foreground font-mono text-sm px-3 py-2.5 placeholder:text-muted-foreground/40 focus:outline-none focus:border-foreground/40 transition-colors resize-none"
           />
         </div>
         <button
           type="submit"
-          className="self-start bg-primary text-primary-foreground hover:brightness-110 transition-all px-6 py-3 rounded-md font-semibold"
+          className="bg-[var(--accent)] text-black font-mono text-xs font-medium px-5 py-2.5 hover:opacity-85 transition-opacity"
         >
-          Send Message
+          Send Message →
         </button>
       </form>
-    </motion.section>
-  );
-};
-
+    </div>
+  </motion.section>
+);
 export default ContactSection;
