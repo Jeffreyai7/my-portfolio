@@ -1,16 +1,9 @@
-// app/layout.tsx
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+// @ts-ignore
 import "./globals.css";
-import { ThemeProvider } from "@/providers/ThemeProvider";
+import { Geist_Mono } from "next/font/google";
 import Header from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import { ParticlesBackground } from "@/providers/Particles";
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-  display: "swap",
-});
+import { Footer } from "@/components/Footer";
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -30,7 +23,6 @@ export const metadata: Metadata = {
     ],
     apple: { url: "/images/apple-touch-icon.png", sizes: "180x180" },
   },
-
   manifest: "/site.webmanifest",
   metadataBase: new URL("https://vercel.app/"),
 };
@@ -39,17 +31,13 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body className="bg-background text-foreground scroll-smooth antialiased">
-        <ThemeProvider defaultTheme="system" enableSystem attribute="class">
-          <ParticlesBackground>
-            <div className="w-full md:w-[80%] mx-auto">
-              <Header />
-              {children}
-              <Footer />
-            </div>
-          </ParticlesBackground>
-        </ThemeProvider>
+    <html lang="en" className={`${geistMono.variable} overflow-x-hidden`}>
+      <body className="bg-background text-foreground scroll-smooth antialiased overflow-x-hidden">
+        <div className="w-full px-5 md:px-8 lg:px-0 lg:w-[80%] lg:mx-auto">
+          <Header />
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );

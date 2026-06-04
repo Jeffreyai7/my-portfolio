@@ -3,53 +3,42 @@ import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 
 const techStacks = [
-  { name: "React", icon: "simple-icons:react", percent: 90 },
-  { name: "Next.js", icon: "simple-icons:nextdotjs", percent: 85 },
-  { name: "TypeScript", icon: "simple-icons:typescript", percent: 85 },
-  { name: "Tailwind CSS", icon: "simple-icons:tailwindcss", percent: 95 },
-  { name: "Sass", icon: "simple-icons:sass", percent: 90 },
-  { name: "NestJS", icon: "simple-icons:nestjs", percent: 70 },
-  { name: "Git", icon: "simple-icons:git", percent: 80 },
+  { name: "React",        icon: "simple-icons:react" },
+  { name: "Next.js",      icon: "simple-icons:nextdotjs" },
+  { name: "TypeScript",   icon: "simple-icons:typescript" },
+  { name: "Tailwind CSS", icon: "simple-icons:tailwindcss" },
+  { name: "Sass",         icon: "simple-icons:sass" },
+  { name: "NestJS",       icon: "simple-icons:nestjs" },
+  { name: "Git",          icon: "simple-icons:git" },
+  { name: "Figma",        icon: "simple-icons:figma" },
 ];
 
 export default function TechStackProgress() {
   return (
-    <section className="grid grid-cols-[180px_1fr] gap-16 py-16 border-b border-border">
-      <span className="text-[11px] text-muted-foreground tracking-[0.12em] uppercase font-mono pt-1">
+    <section className="grid grid-cols-1 md:grid-cols-[180px_1fr] gap-4 md:gap-16 py-12 md:py-16 border-b border-border">
+      <span className="text-[11px] text-muted-foreground tracking-[0.12em] uppercase font-mono">
         Skills
       </span>
+
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-px bg-border">
-        {techStacks.map((stack) => (
+        {techStacks.map((stack, index) => (
           <motion.div
             key={stack.name}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 8 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, delay: index * 0.05 }}
             viewport={{ once: true }}
-            className="bg-background hover:bg-card p-5 flex flex-col gap-3 group transition-colors"
+            className="bg-background hover:bg-card p-5 md:p-6 flex flex-col gap-4 group transition-colors duration-200"
           >
-            <div className="flex items-center justify-between">
-              <Icon
-                icon={stack.icon}
-                width={18}
-                height={18}
-                className="text-muted-foreground group-hover:text-foreground transition-colors"
-              />
-              <span className="text-[10px] text-muted-foreground font-mono">
-                {stack.percent}%
-              </span>
-            </div>
-            <span className="text-xs text-foreground font-mono font-medium">
+            <Icon
+              icon={stack.icon}
+              width={22}
+              height={22}
+              className="text-muted-foreground group-hover:text-accent transition-colors duration-200"
+            />
+            <span className="text-[11px] text-muted-foreground group-hover:text-foreground font-mono tracking-[0.06em] uppercase transition-colors duration-200">
               {stack.name}
             </span>
-            <div className="h-px bg-border w-full">
-              <motion.div
-                initial={{ width: 0 }}
-                whileInView={{ width: `${stack.percent}%` }}
-                transition={{ duration: 0.9, ease: "easeOut" }}
-                viewport={{ once: true }}
-                className="h-px bg-[var(--accent)]"
-              />
-            </div>
           </motion.div>
         ))}
       </div>

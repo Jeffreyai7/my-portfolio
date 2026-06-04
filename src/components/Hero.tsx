@@ -6,26 +6,29 @@ const Hero = () => {
   return (
     <section className="grid grid-cols-1 md:grid-cols-[1fr_280px] gap-10 items-end py-20 border-b border-border">
       <div>
-        <p className="text-[11px] tracking-[0.12em] uppercase text-[var(--accent)] mb-4 font-mono">
+        <p className="text-[11px] tracking-[0.12em] uppercase text-accent mb-4 font-mono">
           Frontend Developer — Lagos, NG
         </p>
+
         <h1
-          className="font-[var(--ff-display)] font-light text-[clamp(3rem,8vw,5.5rem)] leading-[0.95] text-foreground mb-6"
-          style={{ fontFamily: "var(--ff-display)" }}
+          className="font-display font-light text-[clamp(3rem,8vw,5.5rem)] leading-[0.95] text-foreground mb-6"
         >
           Jeffrey
           <br />
-          <em className="italic text-[var(--accent)]">Irukeh</em>
+          <em className="italic text-accent not-italic">Irukeh</em>
         </h1>
+
         <p className="text-sm text-muted-foreground leading-[1.8] max-w-[380px] mb-8 font-mono">
           Building precise, performant web experiences with React and Next.js.
           Focused on the intersection of clean code and thoughtful UI.
         </p>
+
         <div className="flex items-center gap-4">
           <Link
             href="https://drive.google.com/file/d/1T__rllYelOgiHvjXtohJDf_XreRL0ZXW/view"
             target="_blank"
-            className="bg-[var(--accent)] text-black font-mono text-xs font-medium px-5 py-2.5 hover:opacity-85 transition-opacity"
+            rel="noopener noreferrer"
+            className="bg-accent text-accent-foreground font-mono text-xs font-medium px-5 py-2.5 hover:opacity-80 transition-opacity"
           >
             View CV ↗
           </Link>
@@ -49,11 +52,12 @@ const Hero = () => {
             priority
           />
         </div>
-        <span className="absolute -bottom-3.5 -right-3.5 bg-[var(--accent)] text-black font-mono text-[11px] font-medium px-3 py-1.5 tracking-wide">
+        <span className="absolute -bottom-3.5 -right-3.5 bg-accent text-accent-foreground font-mono text-[11px] font-medium px-3 py-1.5 tracking-wide">
           3 YRS EXP
         </span>
       </div>
     </section>
   );
 };
+
 export default Hero;

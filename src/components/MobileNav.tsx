@@ -1,8 +1,9 @@
+"use client";
 import { navLinks } from "@/lib/constant";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React, { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction } from "react";
 
 const MobileNav = ({
   setShowNav,
@@ -12,34 +13,35 @@ const MobileNav = ({
   showNav: boolean;
 }) => {
   const pathname = usePathname();
-  const isActive = (path: string): boolean => pathname.includes(path);
 
   return (
     <div
       className={cn(
-        "absolute top-16 left-0 z-50 flex w-screen flex-col items-center justify-between gap-14 bg-primary-foreground/95 backdrop-blur-md py-10 shadow-2xl transition duration-500 lg:relative lg:top-0 lg:w-full lg:flex-row lg:gap-0 lg:py-0 lg:shadow-none",
-        showNav ? "translate-y-0" : "-translate-y-[200%] lg:translate-y-0"
+        // fixed spans the full viewport width, sits flush under the header
+        "fixed top-[57px] left-0 right-0 z-50",
+        "bg-background border-b border-border",
+        "transition-all duration-300 overflow-hidden",
+        showNav
+          ? "max-h-screen opacity-100"
+          : "max-h-0 opacity-0 pointer-events-none"
       )}
     >
-      <nav className="">
-        <ul className="flex w-full flex-col items-center justify-center gap-10 lg:flex-row lg:justify-between">
-          {navLinks.map((item) => (
-            <li key={item.name} className="w-full text-center lg:text-left">
-              <Link
-                className={cn(
-                  "w-full text-nowrap",
-                  isActive(item.href)
-                    ? "text-primary font-semibold"
-                    : "text-secondary hover:text-primary"
-                )}
-                href={item.href}
-                onClick={() => setShowNav(false)}
-              >
-                {item.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
+      <nav className="flex flex-col px-6 py-2">
+        {navLinks.map((item) => (
+          <Link
+            key={item.name}
+            href={item.href}
+            onClick={() => setShowNav(false)}
+            className={cn(
+              "text-[11px] font-mono uppercase tracking-[0.1em] py-4 border-b border-border last:border-b-0 transition-colors",
+              pathname === item.href
+                ? "text-accent"
+                : "text-muted-foreground hover:text-foreground"
+            )}
+          >
+            {item.name}
+          </Link>
+        ))}
       </nav>
     </div>
   );

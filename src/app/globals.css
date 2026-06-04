@@ -1,8 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300&display=swap');
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  /* html {
+    color-scheme: dark;
+  } */
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--ff-mono), monospace;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
 
 @layer base {
   :root {
@@ -44,16 +59,3 @@
      If you keep the ThemeProvider, you can add a .light override later. */
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  html {
-    color-scheme: dark;
-  }
-  body {
-    @apply bg-background text-foreground;
-    font-family: var(--ff-mono), monospace;
-    -webkit-font-smoothing: antialiased;
-  }
-}

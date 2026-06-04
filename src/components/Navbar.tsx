@@ -1,54 +1,69 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useNavbarStore } from "@/store";
 import { navLinks } from "@/lib/constant";
-import ThemeToggleButton from "./ThemeToggle";
 import MenuToggle from "./MenuToggle";
 import MobileNavbar from "./MobileNav";
 
 const Header: React.FC = () => {
   const { isMenuOpen, toggleMenu } = useNavbarStore();
+  const pathname = usePathname();
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="sticky left-0 right-0 top-0 z-50 bg-background text-foreground transition-all duration-300 ">
-      <div className="container mx-auto flex items-center justify-between px-2 py-3 md:px-6">
-        {/* Logo */}
-        <Link href="/" className="w-[50px]">
-          <Image
-            src="/images/android-chrome-512x512.png"
-            alt="Logo"
-            width={24}
-            height={24}
-            className="relative z-50 w-full rounded-md"
-          />
-        </Link>
+    <>
+      <header
+        className={`sticky top-0 left-0 right-0 z-50 bg-background transition-all duration-300 ${
+          scrolled ? "border-b border-border" : ""
+        }`}
+      >
+        <div className="flex items-center justify-between py-5">
+          {/* Logo */}
+          <Link
+            href="/"
+            className="text-[13px] font-mono text-accent tracking-[0.08em]"
+          >
+            jeffrey.irukeh
+          </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden items-center space-x-8 md:flex">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className="text-[1rem] font-medium transition-colors hover:text-primary"
-            >
-              {link.name}
-            </Link>
-          ))}
-          <ThemeToggleButton />
-        </nav>
+          {/* Desktop nav */}
+          <nav className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                className={`text-[12px] font-mono tracking-[0.05em] transition-colors ${
+                  pathname === link.href
+                    ? "text-accent"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {link.name}
+              </Link>
+            ))}
+          </nav>
 
-        {/* Mobile Menu ` */}
-        <div className=" md:hidden">
-          <div className="flex items-center space-x-4">
-            <ThemeToggleButton />
+          {/* Mobile toggle — only the button, no positioning wrapper */}
+          <div className="md:hidden">
             <MenuToggle showNav={isMenuOpen} setShowNav={toggleMenu} />
           </div>
-          <MobileNavbar showNav={isMenuOpen} setShowNav={toggleMenu} />
         </div>
+      </header>
+
+      {/* MobileNav rendered outside the constrained container,
+          free to anchor fixed to the full viewport */}
+      <div className="md:hidden">
+        <MobileNavbar showNav={isMenuOpen} setShowNav={toggleMenu} />
       </div>
-    </header>
+    </>
   );
 };
 
