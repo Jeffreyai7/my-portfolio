@@ -1,87 +1,59 @@
-import React from "react";
 import Image from "next/image";
 import Profilepic from "@/assets/profile.png";
-import { Button } from "./ui/button";
-import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
-import { ExternalLink } from "lucide-react";
 import Link from "next/link";
 
 const Hero = () => {
   return (
-    <section className="flex flex-col-reverse text-center justify-center items-center md:text-left md:flex-row md:items-center md:justify-between gap-4 p-6">
+    <section className="grid grid-cols-1 md:grid-cols-[1fr_280px] gap-10 items-end py-20 border-b border-border">
       <div>
-        <span className="font-bold">Frontend Developer</span>
-        <h1 className="text-[2rem] sm:text-[3rem] md:text-[4rem] font-bold">
-          Hi, I&apos;m <br /> Jeffrey Irukeh{" "}
+        <p className="text-[11px] tracking-[0.12em] uppercase text-[var(--accent)] mb-4 font-mono">
+          Frontend Developer — Lagos, NG
+        </p>
+        <h1
+          className="font-[var(--ff-display)] font-light text-[clamp(3rem,8vw,5.5rem)] leading-[0.95] text-foreground mb-6"
+          style={{ fontFamily: "var(--ff-display)" }}
+        >
+          Jeffrey
+          <br />
+          <em className="italic text-[var(--accent)]">Irukeh</em>
         </h1>
-        <p>I excel at building responsive and accessible web applications.</p>
-        <p>Let&apos;s work together to create something amazing!</p>
-        <div className="flex flex-col md:flex-row items-center  gap-4 mt-4">
-          <div>
-            <Link
-              href="https://drive.google.com/file/d/1T__rllYelOgiHvjXtohJDf_XreRL0ZXW/view?usp=drive_link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button
-                variant={"outline"}
-                className="
-            rounded-[3rem]"
-              >
-                View CV
-                <ExternalLink className="ml-2 h-4 w-4" />
-              </Button>
-            </Link>
-          </div>
-          <div className="flex items-center gap-4">
-            <div className="flex items-center justify-center w-10 h-10 rounded-full border border-primary text-primary hover:border-secondary hover:text-secondary transition-colors duration-200 cursor-pointer">
-              <Link
-                href="https://github.com/Jeffreyai7"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaGithub size={20} />
-              </Link>
-            </div>
-            <div className="flex items-center justify-center w-10 h-10 rounded-full border border-primary text-primary hover:border-secondary hover:text-secondary transition-colors duration-200 cursor-pointer">
-              <Link
-                href="https://linkedin.com/in/jirukeh"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaLinkedin size={20} />
-              </Link>
-            </div>
-            <div className="flex items-center justify-center w-10 h-10 rounded-full border border-primary text-primary hover:border-secondary hover:text-secondary transition-colors duration-200 cursor-pointer">
-              <Link
-                href="https://x.com/jirukeh"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaXTwitter size={20} />
-              </Link>
-            </div>
-          </div>
+        <p className="text-sm text-muted-foreground leading-[1.8] max-w-[380px] mb-8 font-mono">
+          Building precise, performant web experiences with React and Next.js.
+          Focused on the intersection of clean code and thoughtful UI.
+        </p>
+        <div className="flex items-center gap-4">
+          <Link
+            href="https://drive.google.com/file/d/1T__rllYelOgiHvjXtohJDf_XreRL0ZXW/view"
+            target="_blank"
+            className="bg-[var(--accent)] text-black font-mono text-xs font-medium px-5 py-2.5 hover:opacity-85 transition-opacity"
+          >
+            View CV ↗
+          </Link>
+          <Link
+            href="#projects"
+            className="border border-border text-muted-foreground font-mono text-xs px-4 py-2.5 hover:border-foreground hover:text-foreground transition-colors"
+          >
+            See Projects
+          </Link>
         </div>
       </div>
-      <div className="relative w-[200px] h-[200px] sm:w-[240px] sm:h-[240px] md:w-[300px] md:h-[300px] flex items-center justify-center">
-        {/* Spinning Ring */}
-        <div className="absolute w-full h-full rounded-full border-t-4 border-primary border-r-transparent border-b-transparent border-l-transparent animate-[spin_5s_linear_infinite]"></div>
 
-        {/* Inner Image */}
-        <div className="relative w-[180px] h-[180px] sm:w-[220px] sm:h-[220px] md:w-[280px] md:h-[280px] overflow-hidden rounded-full z-10">
+      <div className="relative self-end hidden md:block">
+        <div className="w-[260px] h-[320px] overflow-hidden border border-border bg-card relative">
           <Image
             src={Profilepic}
-            alt="Hero Image"
+            alt="Jeffrey Irukeh"
             fill
-            className="object-cover"
-            sizes="(max-width: 640px) 180px, (max-width: 768px) 220px, 280px"
+            className="object-cover grayscale"
+            sizes="260px"
             priority
           />
         </div>
+        <span className="absolute -bottom-3.5 -right-3.5 bg-[var(--accent)] text-black font-mono text-[11px] font-medium px-3 py-1.5 tracking-wide">
+          3 YRS EXP
+        </span>
       </div>
     </section>
   );
 };
-
 export default Hero;
