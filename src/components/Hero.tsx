@@ -52,9 +52,9 @@ const Hero = () => {
             priority
           />
         </div>
-        <span className="absolute -bottom-3.5 -right-3.5 bg-accent text-accent-foreground font-mono text-[11px] font-medium px-3 py-1.5 tracking-wide">
+        {/* <span className="absolute -bottom-3.5 -right-3.5 bg-accent text-accent-foreground font-mono text-[11px] font-medium px-3 py-1.5 tracking-wide">
           3 YRS EXP
-        </span>
+        </span> */}
       </div>
     </section>
   );
