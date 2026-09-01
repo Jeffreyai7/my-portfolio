@@ -43,13 +43,13 @@ export const projects: Project[] = [
     demo: "https://dyen.org",
   },
   {
-    title: "Jacinthforge",
+    title: "The wave Insight",
     description:
       "JacinthForge is an LMS that delivers accessible, certified vocational training in plumbing, electrical, carpentry, and more.",
-    techStack: ["Next.js", "Tailwind CSS", "TypeScript"],
-    image: "/images/jacinthforge.png",
+    techStack: ["WordPress", "Elementor", "PHP",],
+    image: "/images/waveinsight.png",
     location: "private",
-    demo: "https://jacinthforge.com.ng",
+    demo: "https://thewaveinsight.com/",
   },
   {
     title: "Mini-Commerce",

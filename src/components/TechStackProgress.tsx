@@ -3,14 +3,15 @@ import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 
 const techStacks = [
-  { name: "React",        icon: "simple-icons:react" },
-  { name: "Next.js",      icon: "simple-icons:nextdotjs" },
-  { name: "TypeScript",   icon: "simple-icons:typescript" },
+  { name: "React", icon: "simple-icons:react" },
+  { name: "Next.js", icon: "simple-icons:nextdotjs" },
+  { name: "TypeScript", icon: "simple-icons:typescript" },
   { name: "Tailwind CSS", icon: "simple-icons:tailwindcss" },
-  { name: "Sass",         icon: "simple-icons:sass" },
-  { name: "NestJS",       icon: "simple-icons:nestjs" },
-  { name: "Git",          icon: "simple-icons:git" },
-  { name: "Figma",        icon: "simple-icons:figma" },
+  { name: "Sass", icon: "simple-icons:sass" },
+  { name: "WordPress", icon: "simple-icons:wordpress" },
+  { name: "NestJS", icon: "simple-icons:nestjs" },
+  { name: "Git", icon: "simple-icons:git" },
+  { name: "Figma", icon: "simple-icons:figma" },
 ];
 
 export default function TechStackProgress() {

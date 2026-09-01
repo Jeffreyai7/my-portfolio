@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Icon } from "@iconify/react";
 import { useNavbarStore } from "@/store";
 import { navLinks } from "@/lib/constant";
 import MenuToggle from "./MenuToggle";
@@ -27,12 +28,22 @@ const Header: React.FC = () => {
       >
         <div className="flex items-center justify-between py-5">
           {/* Logo */}
-          <Link
-            href="/"
-            className="text-[13px] font-mono text-accent tracking-[0.08em]"
-          >
-            jeffrey.irukeh
-          </Link>
+          <div className="flex items-right gap-2.5">
+            {/* <span className="flex h-6 w-6 items-center justify-center rounded-md border border-border bg-card">
+              <Icon
+                icon="simple-icons:wordpress"
+                width={14}
+                height={14}
+                className="text-[#21759b]"
+              />
+            </span> */}
+            <Link
+              href="/"
+              className="text-[13px] font-mono text-accent tracking-[0.08em]"
+            >
+              jeffrey.irukeh
+            </Link>
+          </div>
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-8">

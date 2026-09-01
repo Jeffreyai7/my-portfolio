@@ -1,26 +1,38 @@
 import Image from "next/image";
 import Profilepic from "@/assets/profile.png";
 import Link from "next/link";
+import { Icon } from "@iconify/react";
 
 const Hero = () => {
   return (
     <section className="grid grid-cols-1 md:grid-cols-[1fr_280px] gap-10 items-end py-20 border-b border-border">
       <div>
         <p className="text-[11px] tracking-[0.12em] uppercase text-accent mb-4 font-mono">
-          Frontend Developer — Lagos, NG
+          Frontend • WordPress Developer — Lagos, NG
         </p>
 
-        <h1
-          className="font-display font-light text-[clamp(3rem,8vw,5.5rem)] leading-[0.95] text-foreground mb-6"
-        >
+        <h1 className="font-display font-light text-[clamp(3rem,8vw,5.5rem)] leading-[0.95] text-foreground mb-6">
           Jeffrey
           <br />
           <em className="italic text-accent not-italic">Irukeh</em>
         </h1>
 
-        <p className="text-sm text-muted-foreground leading-[1.8] max-w-[380px] mb-8 font-mono">
-          Building precise, performant web experiences with React and Next.js.
-          Focused on the intersection of clean code and thoughtful UI.
+        <div className="flex items-center gap-3 mb-6">
+          <span className="inline-flex items-center gap-2 border border-border bg-card px-3 py-1.5 text-[10px] font-mono uppercase tracking-[0.12em] text-muted-foreground">
+            <Icon
+              icon="simple-icons:wordpress"
+              width={14}
+              height={14}
+              className="text-[#21759b]"
+            />
+            WordPress
+          </span>
+        </div>
+
+        <p className="text-sm text-muted-foreground leading-[1.8] max-w-[420px] mb-8 font-mono">
+          Building polished web experiences with React, Next.js, and WordPress.
+          I design fast interfaces, custom CMS solutions, and brand-forward
+          websites that are easy to manage.
         </p>
 
         <div className="flex items-center gap-4">

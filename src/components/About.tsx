@@ -15,7 +15,7 @@ const About = () => (
         on React and Next.js, with a strong grip on TypeScript and modern CSS.
       </p>
       <p className="text-sm text-muted-foreground leading-[1.9] max-w-[580px] font-mono mt-3">
-        I care deeply about the details — the kind that users feel without
+        I care deeply about the details the kind that users feel without
         noticing. If it ships, it should be right.
       </p>
     </div>
