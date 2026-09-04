@@ -5,18 +5,20 @@ const About = () => (
     </span>
     <div>
       <h2 className="font-display font-light text-3xl text-foreground leading-[1.15] mb-5">
-        Precision-driven
+        Full-stack
         <br />
-        <em className="italic text-accent">frontend craft</em>
+        <em className="italic text-accent">product craft</em>
       </h2>
       <p className="text-sm text-muted-foreground leading-[1.9] max-w-[580px] font-mono">
-        I&apos;m a frontend developer with a passion for building fast,
-        accessible, and meticulously crafted web applications. My stack centers
-        on React and Next.js, with a strong grip on TypeScript and modern CSS.
+        I&apos;m a full stack developer building experiences from the interface
+        to the systems behind it. My work blends React, Next.js, TypeScript,
+        NestJS, and Express with practical product thinking to ship digital
+        experiences that feel polished and work reliably.
       </p>
       <p className="text-sm text-muted-foreground leading-[1.9] max-w-[580px] font-mono mt-3">
-        I care deeply about the details the kind that users feel without
-        noticing. If it ships, it should be right.
+        I also work with AI-driven tools and workflows, using modern AI systems
+        to accelerate product thinking, workflows, and intelligent user
+        experiences.
       </p>
     </div>
   </section>

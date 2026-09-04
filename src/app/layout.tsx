@@ -12,9 +12,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Jeffthedev — Frontend Developer",
+  title: "Jeffthedev — Full Stack Developer",
   description:
-    "Portfolio showcasing projects built with React, Next.js, and Tailwind CSS.",
+    "Full stack developer building scalable digital products with strong product thinking and modern web experiences.",
   icons: {
     icon: [
       { url: "/images/favicon-16x16.png", sizes: "16x16", type: "image/png" },

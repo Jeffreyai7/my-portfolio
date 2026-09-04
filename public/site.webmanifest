@@ -1,5 +1,5 @@
 {
-  "name": "Jeff | Frontend Developer",
+  "name": "Jeff | Full Stack Developer",
   "short_name": "Jeff.dev",
   "start_url": "/",
   "display": "standalone",
@@ -23,6 +23,6 @@
       "type": "image/x-icon"
     }
   ],
-  "description": "A sleek frontend developer portfolio by Ajiri, built with Next.js, Tailwind CSS, and modern web tech.",
+  "description": "A sleek full stack developer portfolio building modern digital products with strong product thinking and polished user experiences.",
   "lang": "en"
 }
