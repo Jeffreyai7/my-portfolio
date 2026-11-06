@@ -1,18 +1,22 @@
-import About from "@/components/About";
 import Hero from "@/components/Hero";
-import MySkills from "@/components/MySkills";
-import StatsSection from "@/components/StatsSection";
+import TechMarquee from "@/components/TechMarquee";
+import About from "@/components/About";
+import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
+import Skills from "@/components/Skills";
+import Credentials from "@/components/Credentials";
 import ContactSection from "@/components/Contact";
 
-export default function App() {
+export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main>
       <Hero />
-      <StatsSection />
+      <TechMarquee />
       <About />
-      <MySkills />
+      <Experience />
       <Projects />
+      <Skills />
+      <Credentials />
       <ContactSection />
     </main>
   );

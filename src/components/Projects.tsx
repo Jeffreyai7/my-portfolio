@@ -1,105 +1,80 @@
-"use client";
-import { projects } from "@/lib/constant";
-import { motion } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
+import Reveal from "./Reveal";
+import ProjectCard from "./ProjectCard";
+import SectionHeader from "./SectionHeader";
+import { projects } from "@/lib/constant";
 
 export default function Projects() {
+  const featured = projects.filter((p) => p.featured);
+  const rest = projects.filter((p) => !p.featured);
+
   return (
-    <section
-      id="projects"
-      className="grid grid-cols-1 md:grid-cols-[180px_1fr] gap-4 md:gap-16 py-12 md:py-16 border-b border-border"
-    >
-      <span className="text-[11px] text-muted-foreground tracking-[0.12em] uppercase font-mono">
-        Projects
-      </span>
+    <section id="work" className="border-t border-border py-24 md:py-36">
+      <div className="container-x">
+        <SectionHeader
+          index="03"
+          label="Selected work"
+          title={
+            <>
+              Products I&rsquo;ve <em className="text-accent">built</em>
+            </>
+          }
+          intro="A mix of client platforms, product work and focused builds — each one shipped, live and used."
+          aside={
+            <Link href="/projects" className="btn-ghost group">
+              All projects
+              <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
+            </Link>
+          }
+        />
 
-      <div>
-        {projects.slice(0, 4).map((project, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: index * 0.07 }}
-            viewport={{ once: true }}
-            className="group grid grid-cols-1 sm:grid-cols-[1fr_160px] gap-4 items-start py-8 border-b border-border first:border-t first:border-border"
-          >
-            {/* Left: text content */}
-            <div className="order-2 sm:order-1">
-              <p className="text-[11px] text-muted-foreground font-mono mb-2">
-                {String(index + 1).padStart(2, "0")}
-              </p>
-
-              <h3 className="font-display font-light text-xl text-foreground group-hover:text-accent transition-colors duration-200 mb-2">
-                {project.title}
-              </h3>
-
-              <p className="text-xs text-muted-foreground font-mono leading-relaxed mb-4">
-                {project.description}
-              </p>
-
-              <div className="flex flex-wrap gap-1.5 mb-4">
-                {project.techStack.map((tech) => (
-                  <span
-                    key={tech}
-                    className="text-[10px] border border-border text-muted-foreground font-mono px-2 py-0.5"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-
-              <div className="flex items-center gap-5">
-                {project.location === "github" ? (
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[11px] text-muted-foreground font-mono hover:text-accent transition-colors"
-                  >
-                    Github ↗
-                  </a>
-                ) : (
-                  <span className="text-[11px] text-muted-foreground font-mono italic">
-                    Private
-                  </span>
-                )}
-                {project.demo && (
-                 <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[11px] text-muted-foreground font-mono hover:text-accent transition-colors"
-                  >
-                    Live ↗
-                  </a>
-                )}
-              </div>
-            </div>
-
-            {/* Right: project thumbnail */}
-            <div className="order-1 sm:order-2 w-full sm:w-[160px] shrink-0">
-              <div className="relative w-full aspect-video sm:aspect-[4/3] overflow-hidden border border-border bg-card">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-                  sizes="(max-width: 640px) 100vw, 160px"
-                />
-              </div>
-            </div>
-          </motion.div>
-        ))}
-
-        <div className="pt-8">
-          <Link
-            href="/projects"
-            className="text-xs font-mono text-muted-foreground border border-border px-5 py-2.5 hover:border-foreground hover:text-foreground transition-colors"
-          >
-            All Projects →
-          </Link>
+        <div className="grid gap-x-10 gap-y-20 md:grid-cols-2">
+          {featured.map((p, i) => (
+            <Reveal key={p.slug} delay={(i % 2) * 0.1} className={i % 2 ? "md:mt-24" : ""}>
+              <ProjectCard project={p} priority={i < 2} />
+            </Reveal>
+          ))}
         </div>
+
+        <Reveal className="mt-28">
+          <h3 className="eyebrow mb-6">Also built</h3>
+          <ul className="border-t border-border">
+            {rest.map((p) => {
+              const href = p.demo ?? p.github;
+              const Row = (
+                <div className="grid grid-cols-[1fr_auto] items-center gap-4 py-6 md:grid-cols-[1.2fr_1.6fr_1fr_auto] md:gap-8">
+                  <span className="text-lg font-medium tracking-tight transition-colors group-hover:text-accent">
+                    {p.title}
+                  </span>
+                  <span className="hidden text-sm text-muted-foreground md:block">{p.tagline}</span>
+                  <span className="hidden font-mono text-xs text-muted-foreground md:block">{p.category}</span>
+                  {href ? (
+                    <ArrowUpRight
+                      size={18}
+                      className="text-muted-foreground transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent"
+                    />
+                  ) : (
+                    <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+                      Private
+                    </span>
+                  )}
+                </div>
+              );
+              return (
+                <li key={p.slug} className="group border-b border-border">
+                  {href ? (
+                    <a href={href} target="_blank" rel="noopener noreferrer" className="block">
+                      {Row}
+                    </a>
+                  ) : (
+                    Row
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+        </Reveal>
       </div>
     </section>
   );

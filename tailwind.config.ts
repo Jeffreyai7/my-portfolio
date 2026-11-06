@@ -11,14 +11,14 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--ff-mono)', 'monospace'],   // override geist — mono is the default now
-        mono: ['var(--ff-mono)', 'monospace'],
-        display: ['var(--ff-display)', 'Georgia', 'serif'],
+        sans: ['var(--font-sans)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        mono: ['var(--font-mono)', 'ui-monospace', 'monospace'],
+        display: ['var(--font-display)', 'Georgia', 'serif'],
       },
       borderRadius: {
         lg: 'var(--radius)',
-        md: 'var(--radius)',
-        sm: 'var(--radius)',
+        md: 'calc(var(--radius) - 4px)',
+        sm: 'calc(var(--radius) - 8px)',
       },
       colors: {
         background: 'hsl(var(--background))',
@@ -75,7 +75,7 @@ const config: Config = {
 animation: {
   'spin-slow':  'spin 5s linear infinite',
   'fade-in':    'fadeIn 0.6s ease forwards',
-  'marquee':    'marquee 22s linear infinite',
+  'marquee':    'marquee 40s linear infinite',
 },
      },
 

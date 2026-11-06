@@ -1,106 +1,41 @@
-"use client";
-import { projects } from "@/lib/constant";
-import { motion } from "framer-motion";
-import Image from "next/image";
+import type { Metadata } from "next";
 import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
+import ProjectsExplorer from "@/components/ProjectsExplorer";
+import { projects } from "@/lib/constant";
 
-export default function Projects() {
+export const metadata: Metadata = {
+  title: "Projects",
+  description:
+    "Client platforms, product builds and Web3 work by Jeffrey Irukeh — built with React, Next.js and TypeScript.",
+};
+
+export default function ProjectsPage() {
   return (
-    <section
-      id="projects"
-      className="grid grid-cols-1 md:grid-cols-[180px_1fr] gap-4 md:gap-16 py-12 md:py-16 border-b border-border"
-    >
-      <span className="text-[11px] text-muted-foreground tracking-[0.12em] uppercase font-mono">
-        Projects
-      </span>
+    <main className="pb-24 pt-36 md:pb-36 md:pt-44">
+      <div className="container-x">
+        <Link
+          href="/"
+          className="group mb-10 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+        >
+          <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-0.5" />
+          Back home
+        </Link>
+        <p className="eyebrow mb-5 flex items-center gap-3">
+          <span className="text-accent">{String(projects.length).padStart(2, "0")}</span>
+          <span className="h-px w-8 bg-border" aria-hidden />
+          Projects
+        </p>
+        <h1 className="max-w-4xl font-display text-[clamp(3rem,8vw,6.5rem)] leading-[0.95] tracking-[-0.02em] text-balance">
+          Everything I&rsquo;ve <em className="text-accent">shipped</em>, in one place.
+        </h1>
+        <p className="mt-6 max-w-xl text-[17px] leading-relaxed text-muted-foreground">
+          Client platforms, product work, Web3 builds and the experiments that
+          sharpened the craft along the way.
+        </p>
 
-      <div>
-        {projects.map((project, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: index * 0.07 }}
-            viewport={{ once: true }}
-            className="group grid grid-cols-1 sm:grid-cols-[1fr_160px] gap-4 items-start py-8 border-b border-border first:border-t first:border-border"
-          >
-            {/* Left: text content */}
-            <div className="order-2 sm:order-1">
-              <p className="text-[11px] text-muted-foreground font-mono mb-2">
-                {String(index + 1).padStart(2, "0")}
-              </p>
-
-              <h3 className="font-display font-light text-xl text-foreground group-hover:text-accent transition-colors duration-200 mb-2">
-                {project.title}
-              </h3>
-
-              <p className="text-xs text-muted-foreground font-mono leading-relaxed mb-4">
-                {project.description}
-              </p>
-
-              <div className="flex flex-wrap gap-1.5 mb-4">
-                {project.techStack.map((tech) => (
-                  <span
-                    key={tech}
-                    className="text-[10px] border border-border text-muted-foreground font-mono px-2 py-0.5"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-
-              <div className="flex items-center gap-5">
-                {project.location === "github" ? (
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[11px] text-muted-foreground font-mono hover:text-accent transition-colors"
-                  >
-                    Github ↗
-                  </a>
-                ) : (
-                  <span className="text-[11px] text-muted-foreground font-mono italic">
-                    Private
-                  </span>
-                )}
-                {project.demo && (
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[11px] text-muted-foreground font-mono hover:text-accent transition-colors"
-                  >
-                    Live ↗
-                  </a>
-                )}
-              </div>
-            </div>
-
-            {/* Right: project thumbnail */}
-            <div className="order-1 sm:order-2 w-full sm:w-[160px] shrink-0">
-              <div className="relative w-full aspect-video sm:aspect-[4/3] overflow-hidden border border-border bg-card">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-                  sizes="(max-width: 640px) 100vw, 160px"
-                />
-              </div>
-            </div>
-          </motion.div>
-        ))}
-
-        <div className="pt-8">
-          <Link
-            href="/projects"
-            className="text-xs font-mono text-muted-foreground border border-border px-5 py-2.5 hover:border-foreground hover:text-foreground transition-colors"
-          >
-            All Projects →
-          </Link>
-        </div>
+        <ProjectsExplorer />
       </div>
-    </section>
+    </main>
   );
 }

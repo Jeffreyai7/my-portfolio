@@ -1,61 +1,141 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
+  :root {
+    --background: 40 6% 4%;          /* #0b0b0a warm ink */
+    --foreground: 45 20% 94%;        /* #f3f1ea paper */
+
+    --card: 40 5% 7%;
+    --card-foreground: 45 20% 94%;
+
+    --popover: 40 5% 7%;
+    --popover-foreground: 45 20% 94%;
+
+    --primary: 45 20% 94%;
+    --primary-foreground: 40 6% 4%;
+
+    --secondary: 40 4% 11%;
+    --secondary-foreground: 45 20% 94%;
+
+    --accent: 82 83% 70%;            /* #c8f07a signature lime */
+    --accent-foreground: 40 6% 4%;
+
+    --muted: 40 4% 11%;
+    --muted-foreground: 40 4% 58%;
+
+    --destructive: 0 72% 58%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 40 4% 15%;
+    --input: 40 4% 15%;
+    --ring: 82 83% 70%;
+
+    --radius: 1rem;
+
+    color-scheme: dark;
+  }
+
   * {
     @apply border-border;
   }
-  /* html {
-    color-scheme: dark;
-  } */
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+
   body {
-    @apply bg-background text-foreground;
-    font-family: var(--ff-mono), monospace;
+    @apply bg-background text-foreground font-sans;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: hsl(var(--accent));
+    color: hsl(var(--accent-foreground));
+  }
+
+  :focus-visible {
+    outline: 2px solid hsl(var(--accent));
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
-
-@layer base {
-  :root {
-    --background: 0 0% 4%;           /* #0a0a0a */
-    --foreground: 45 13% 95%;        /* #f5f4f0 */
-
-    --card: 0 0% 7%;                 /* #111111 */
-    --card-foreground: 45 13% 95%;
-
-    --popover: 0 0% 7%;
-    --popover-foreground: 45 13% 95%;
-
-    --primary: 45 13% 95%;           /* white-ish — used for primary buttons etc */
-    --primary-foreground: 0 0% 4%;
-
-    --secondary: 0 0% 11%;
-    --secondary-foreground: 45 13% 95%;
-
-    --accent: 82 83% 70%;            /* #c8f07a acid green */
-    --accent-foreground: 0 0% 4%;    /* black text on accent */
-
-    --muted: 0 0% 11%;
-    --muted-foreground: 0 0% 53%;    /* #888 */
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 0 0% 16%;              /* #2a2a2a */
-    --input: 0 0% 16%;
-    --ring: 82 83% 70%;
-
-    --radius: 0rem;                  /* sharp corners everywhere */
-
-    --ff-display: 'Fraunces', Georgia, serif;
-    --ff-mono: 'IBM Plex Mono', monospace;
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-[1200px] px-5 sm:px-8;
   }
 
-  /* No separate .dark block — the whole site is dark by default.
-     If you keep the ThemeProvider, you can add a .light override later. */
+  .eyebrow {
+    @apply font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-full border border-border bg-white/[0.02] px-2.5 py-1 font-mono text-[11px] text-muted-foreground;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-medium transition-all duration-300;
+  }
+  .btn-primary {
+    @apply btn bg-accent text-accent-foreground hover:shadow-[0_0_0_6px_hsl(var(--accent)/0.15)];
+  }
+  .btn-ghost {
+    @apply btn border border-border text-foreground hover:border-foreground/40 hover:bg-white/[0.03];
+  }
+
+  .card-surface {
+    @apply rounded-2xl border border-border bg-card/60;
+  }
 }
 
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, hsl(var(--foreground) / 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--foreground) / 0.04) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+  .mask-fade-b {
+    -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent);
+    mask-image: linear-gradient(to bottom, black 40%, transparent);
+  }
+  .mask-fade-x {
+    -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  }
+}
+
+/* Film grain overlay — adds tactile depth to flat dark surfaces */
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}

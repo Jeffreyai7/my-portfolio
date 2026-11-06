@@ -1,20 +1,55 @@
-import type { Metadata } from "next";
-// @ts-ignore
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import Header from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import MotionProvider from "@/providers/MotionProvider";
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const sans = Geist({
+  variable: "--font-sans",
   subsets: ["latin"],
   display: "swap",
 });
 
+const mono = Geist_Mono({
+  variable: "--font-mono",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const display = Instrument_Serif({
+  variable: "--font-display",
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  display: "swap",
+});
+
+const title = "Jeffrey Irukeh — Front-End Engineer";
+const description =
+  "Front-end engineer in Lagos building fast, accessible web products with React, Next.js and TypeScript — from polished interfaces to APIs and Web3 integrations.";
+
 export const metadata: Metadata = {
-  title: "Jeffthedev — Full Stack Developer",
-  description:
-    "Full stack developer building scalable digital products with strong product thinking and modern web experiences.",
+  title: { default: title, template: "%s — Jeffrey Irukeh" },
+  description,
+  keywords: [
+    "Jeffrey Irukeh",
+    "Front-End Engineer",
+    "React Developer",
+    "Next.js",
+    "TypeScript",
+    "Web3 Developer",
+    "Lagos",
+    "Nigeria",
+  ],
+  authors: [{ name: "Jeffrey Irukeh" }],
+  openGraph: {
+    title,
+    description,
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: { card: "summary_large_image", title, description, creator: "@jirukeh" },
   icons: {
     icon: [
       { url: "/images/favicon-16x16.png", sizes: "16x16", type: "image/png" },
@@ -27,17 +62,31 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://vercel.app/"),
 };
 
+export const viewport: Viewport = {
+  themeColor: "#0b0b0a",
+  colorScheme: "dark",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${geistMono.variable} overflow-x-hidden`}>
-      <body className="bg-background text-foreground scroll-smooth antialiased overflow-x-hidden">
-        <div className="w-full px-5 md:px-8 lg:px-0 lg:w-[80%] lg:mx-auto">
+    <html
+      lang="en"
+      className={`${sans.variable} ${mono.variable} ${display.variable}`}
+    >
+      <body className="grain overflow-x-hidden">
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded-full focus:bg-accent focus:px-4 focus:py-2 focus:text-accent-foreground"
+        >
+          Skip to content
+        </a>
+        <MotionProvider>
           <Header />
-          {children}
+          <div id="main">{children}</div>
           <Footer />
-        </div>
+        </MotionProvider>
       </body>
     </html>
   );

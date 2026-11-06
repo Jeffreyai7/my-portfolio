@@ -1,11 +1,9 @@
-import React from "react";
-
-const loading = () => {
+export default function Loading() {
   return (
-    <div className="flex items-center justify-center h-screen">
-      <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-accent"></div>
+    <div className="grid h-screen place-items-center" role="status" aria-label="Loading">
+      <span className="grid h-10 w-10 animate-pulse place-items-center rounded-full bg-accent font-display text-xl italic text-accent-foreground">
+        j
+      </span>
     </div>
   );
-};
-
-export default loading;
+}
